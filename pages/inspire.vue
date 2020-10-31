@@ -1,15 +1,77 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+  <div id="app">
+    <div class="container">
+      <h2 align="center">Workshop #3 - คำนวณราคาสินค้า</h2>
+      <hr />
+      <div class="row">
+        <div class="col-md-3" v-for="item in products" v-bind:key="item">
+          <div class="card h-100">
+            <v-img :src="item.image" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">{{ item.name }}</h4>
+              <p class="card-text">ราคา {{ item.price }} บาท</p>
+            </div>
+            <div class="card-footer">
+              <input
+                type="checkbox"
+                class="form-control"
+                @change="selected(item)"
+              />
+            </div>
+          </div>
+        </div>
+        <h4>ยอดชำระเงิน {{ total() }} บาท</h4>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      products: [
+        {
+          id: 1,
+          name: 'กาแฟเย็น',
+          price: 30,
+          image:
+            'https://cdn.pixabay.com/photo/2017/06/21/01/17/coffee-2425652_960_720.jpg',
+          active: false,
+        },
+        {
+          id: 2,
+          name: 'ชาเย็น',
+          price: 35,
+          image:
+            'https://cdn.pixabay.com/photo/2015/08/26/11/20/beverage-908356_960_720.jpg',
+          active: false,
+        },
+        {
+          id: 3,
+          name: 'ชามะนาว',
+          price: 50,
+          image:
+            'https://cdn.pixabay.com/photo/2018/01/11/17/29/ice-tea-3076517__340.jpg',
+          active: false,
+        },
+      ],
+    }
+  },
+  methods: {
+    selected(item) {
+      item.active = !item.active
+    },
+    total() {
+      const sum = 0
+      this.products.forEach(function (item) {
+        if (item.active) {
+          this.sum += item.price
+        }
+      })
+      return sum
+    },
+  },
+}
+</script>

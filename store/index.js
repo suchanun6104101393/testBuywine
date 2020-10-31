@@ -2,7 +2,7 @@ export const state = () => ({
   products: [
     {
       id: 1,
-      title: 'Product 1',
+      title: 'Santa Helena',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       price: 50,
       ratings: 3,
@@ -11,6 +11,7 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1,
+      image: 'https://i.ytimg.com/vi/04bdcUjM-AU/maxresdefault.jpg',
     },
     {
       id: 2,

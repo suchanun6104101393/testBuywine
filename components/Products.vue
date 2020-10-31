@@ -1,22 +1,23 @@
 <template>
   <div>
     <v-row>
-      <v-card outlined class="mx-auto">
+      <v-card height="500" width="400">
         <figure class="image is-4by3">
-          <img
+          <v-img
+            class="white--text align-end"
             height="300"
-            width="500"
-            src="https://bulma.io/images/placeholders/1280x960.png"
-            alt="Placeholder image"
-          />
+            width="400"
+            :src="product.image"
+          >
+          </v-img>
         </figure>
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">{{ product.title }}</p>
+              <h1 align="center">{{ product.title }}</h1>
             </div>
             <div class="media-content">
-              <p class="title is-4">{{ product.description }}</p>
+              <l align="center">{{ product.description }}</l>
             </div>
             <div class="card-footer btn-actions">
               <div class="card-footer-item field is-grouped">
